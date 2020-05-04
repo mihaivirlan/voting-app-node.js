@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cool Voting App</title>
+</head>
+<body>
+    <h1>Vote on a Topic</h1>
+    <form action="/vote/new" method="POST" id="pollform">
+        <label for="linux">Linux</label>
+        <input id="linux" name="linux"
+            type="checkbox" class="checkbox" 
+            onclick="vote(this)" />
+
+        <label for="macos">Mac OS</label>
+        <input id="macos" name="macos" 
+            type="checkbox" class="checkbox" 
+            onclick="vote(this)" />
+
+        <label for="macos">Windows</label>
+        <input id="windows" name="windows" 
+            type="checkbox" class="checkbox" 
+            onclick="vote(this)" />
+        <input type="submit" />
+    </form>
+    <br/>
+    <hr/>
+    <br/>
+
+    <h1>Results:</h1>
+    <p>Linux:
+        <span id="linuxvotes">0</span>
+        votes
+    </p>
+    <p>Mac OS:
+        <span id="macosvotes">1</span>
+        votes
+    </p>
+    <p>Windows:
+        <span id="windows">3</span>
+        votes
+    </p>
+
+</body>
+</html>
