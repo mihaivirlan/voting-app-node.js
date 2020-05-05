@@ -38,22 +38,32 @@
         votes
     </p>
     <p>Windows:
-        <span id="windows"></span>
+        <span id="windowsvotes"></span>
         votes
     </p>
 
-    <script>
-        window.onload = () => {
-            fetch('/poll').then((results) => {
-                results.json().then((data) => {
-                    for (x in data) {
-                        console.log(x);
-                        console.log(data[x]);
-                        document.getElementById(x + 'votes').innerText = data[x];
-                    }
-                })
-            })
+<script>
+let pollform = document.getElementById('pollform');
+let vote = (element) => {
+    let checkboxes = document.getElementsByClassName('checkbox');
+    for (let i = 0; i <= checkboxes.length -1; i++) {
+        if (checkboxes[i].id !== element.id) {
+            checkboxes[i].checked = false;
         }
-    </script>
+    }
+}
+
+    window.onload = () => {
+        fetch('/poll').then((results) => {
+            results.json().then((data) => {
+                for (x in data) {
+                    console.log(x);
+                    console.log(data[x]);
+                    document.getElementById(x + 'votes').innerText = data[x];
+                }
+            })
+        })
+    }
+</script>
 </body>
 </html>
